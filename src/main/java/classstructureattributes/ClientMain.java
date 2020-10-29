@@ -11,6 +11,7 @@ public class ClientMain {
         System.out.println("Enter your birth year:");
         client.year = scanner.nextInt();
         System.out.println("Enter your address:");
+        scanner.nextLine();
         client.address = scanner.nextLine();
 
         System.out.println("Your data:");

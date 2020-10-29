@@ -1,6 +1,6 @@
 package classstructureattributes;
 public class Client {
-    String name;
-    int year;
-    String address;
+   String name;
+   int year;
+   String address;
 }
