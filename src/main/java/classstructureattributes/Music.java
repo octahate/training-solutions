@@ -10,10 +10,10 @@ public class Music {
         song.title = scanner.nextLine();
         System.out.println("Ki a kedvenc zenéd előadója?:");
         song.band = scanner.nextLine();
-        System.out.println("Mi a kedvenc zenéd hossza percben?:");
+        System.out.println("Mi a kedvenc zenéd hossza másodpercben?:");
         song.length = scanner.nextInt();
 
-        System.out.println(song.band + " - " + song.title + " (" + song.length + " perc)");
+        System.out.println(song.band + " - " + song.title + " (" + song.length + " másodperc)");
 
     }
 }

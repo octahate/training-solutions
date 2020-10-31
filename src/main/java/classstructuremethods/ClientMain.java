@@ -8,11 +8,12 @@ public class ClientMain {
         client.setAddress("Hold u.1");
 
         System.out.println("Your data:");
-        System.out.println(client.getAddress());
         System.out.println(client.getName());
         System.out.println(client.getYear());
+        System.out.println(client.getAddress());
 
         client.migrate("nap u. 1");
+       // client.setAddress("jó u 1.");
         System.out.println("New address: " + client.getAddress());
 
     }
