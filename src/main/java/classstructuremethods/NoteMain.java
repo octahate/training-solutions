@@ -5,7 +5,7 @@ public class NoteMain {
         Note note = new Note();
         note.setName("Programozás");
         note.setTopic("structuremethods");
-        note.setText("Ez a szöveg metódusokkal lett legenerálva");
+        note.setText("Ez a szöveg metódusokkal lett legenerálva.");
         System.out.println(note.getNoteText());
     }
 }

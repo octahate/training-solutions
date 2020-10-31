@@ -29,6 +29,6 @@ public class Note {
         this.text = text;
     }
     public String getNoteText() {
-        return name + " : (" + topic + ") " + text;
+        return name + ": (" + topic + ") " + text;
     }
 }
