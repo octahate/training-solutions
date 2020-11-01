@@ -1,7 +1,7 @@
 package stringtype.registrtation;
 
 public class UserValidator {
-    public class UserValidator {
+
         public boolean isValidUsername(String username){
             return username.length() > 0;
         }
@@ -9,9 +9,8 @@ public class UserValidator {
             return password1.equals(password2)
                     && password1.length() >= 8;
         }
-        public boolean isValidEmail (String email){
-            return (
+
 
         }
-    }
-}
+
+

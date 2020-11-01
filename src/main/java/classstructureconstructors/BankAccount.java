@@ -11,13 +11,14 @@ public class BankAccount {
         this.owner = owner;
         this.balance = balance;
     }
+
     public void deposit (int amount) {
-        balance = balance + amount;
+        this.balance += amount;
     }
     public void withdraw (int amount) {
-        balance = balance - amount;
+        this.balance += amount;
     }
-    public void transfer(BankAccount to, int amount) { //what is .to tho ???
+    public void transfer(BankAccount to, int amount) {
         withdraw(amount);
         to.deposit(amount);
     }
