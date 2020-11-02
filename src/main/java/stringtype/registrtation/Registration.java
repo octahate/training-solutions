@@ -9,7 +9,7 @@ public class Registration {
         System.out.println("Adj meg egy felhasználónevet:");
         String username = scanner.nextLine();
         System.out.println(uservalidator.isValidUsername(username));
-        System.out.prgeintln("Adj meg egy emailt:");
+        System.out.println("Adj meg egy emailt:");
         String email = scanner.nextLine();
         System.out.println(uservalidator.isValidEmail(email));
         System.out.println("Adj meg egy jelszót:");
