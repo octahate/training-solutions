@@ -1,15 +1,15 @@
 package statements;
 
 public class Investment {
-    private double cost;
-    private double fund;
+    private double cost = 0.3;
+    private int fund;
     private int interestRate;
     private boolean active;
 
-    public Investment(double fund, int interestRate) {
+    public Investment(int fund, int interestRate) {
         this.fund = fund;
         this.interestRate = interestRate;
-        active = true;
+        this.active = true;
     }
 
     public int getInterestRate() {

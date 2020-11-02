@@ -6,7 +6,7 @@ public class investMain {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Mennyit fektetnél be?");
-        double fund = scanner.nextInt();
+        int fund = scanner.nextInt();
         System.out.println("Milyen kamatlábbal?");
         int interestRate = scanner.nextInt();
 
