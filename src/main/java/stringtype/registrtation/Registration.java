@@ -17,6 +17,5 @@ public class Registration {
         System.out.println("Adj meg a jelszót megint:");
         String password2 = scanner.nextLine();
         System.out.println(uservalidator.isValidPassword(password1,password2));
-
     }
 }
