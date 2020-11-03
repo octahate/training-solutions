@@ -7,20 +7,21 @@ public class ArrayMain {
         System.out.println(week[1]);
         System.out.println(week.length);
 
-        int[] powers = new int[5];
+        int[] powersOfTwo = new int[5];
+        powersOfTwo [0] = 1;
 
-        for (int i = 0; i < powers.length; i++) {
-            int prev = 1;
-            powers[i] = powers[i - prev] * 2; // az i-edik elem legyen egyenlő az előző elem kétszeres szorzatával
+        int temp = 1;
+
+        for (int i = 0; i < powersOfTwo.length; i++) {
+            powersOfTwo[i] = temp;
+            temp *= 2;
         }
-        for (int power : powers) {
+        for (int power : powersOfTwo) {
             System.out.println(power);
         }
 
-        // ez hülyeséget ír ki
-
-        for (int i = 0; i < powers.length; i++) {
-            System.out.print(powers[i] + " ");
+        for (int i = 0; i < powersOfTwo.length; i++) {
+            System.out.print(powersOfTwo[i] + " ");
         }
         boolean[] yesno = new boolean[6];
 
