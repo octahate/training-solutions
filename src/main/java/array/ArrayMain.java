@@ -23,10 +23,6 @@ public class ArrayMain {
         for (int i = 0; i < powersOfTwo.length; i++) {
             System.out.print(powersOfTwo[i] + " ");
         }
-        boolean[] yesno = new boolean[6];
-
-        //ez se megy
-
     }
 }
 
