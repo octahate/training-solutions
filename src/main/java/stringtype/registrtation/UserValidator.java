@@ -12,7 +12,7 @@ public class UserValidator {
         public boolean isValidEmail (String email){
             int atWhere = email.indexOf("@");
             int dotWhere = email.indexOf('.');
-            return (atWhere > 0 &&  dotWhere > atWhere && dotWhere < (email.length()-1));
+            return (atWhere > 0 &&  dotWhere > atWhere + 1 && dotWhere < (email.length()-1));
                     }
 
         }
