@@ -10,7 +10,11 @@ public class ArrayMain {
         int[] powers = new int[5];
 
         for (int i = 0; i < powers.length; i++) {
-            powers[i] = 2 ^ i;
+            int prev = 1;
+            powers[i] = powers[i - prev] * 2; // az i-edik elem legyen egyenlő az előző elem kétszeres szorzatával
+        }
+        for (int power : powers) {
+            System.out.println(power);
         }
 
         // ez hülyeséget ír ki
