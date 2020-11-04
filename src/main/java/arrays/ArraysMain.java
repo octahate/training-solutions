@@ -29,7 +29,13 @@ public class ArraysMain {
         int[][] arrayInArray ={{1,2,3},{2,3,4},{1,2,3,4,5}};
         for(int i=0;i<arrayInArray.length;i++){
             for(int j=0;j<arrayInArray[i].length;j++){
-                System.out.print(arrayInArray[i][j]);
+                System.out.print(arrayInArray[i][j]); //pl [0][0] =  1
+            }
+            System.out.println();
+        }
+        for (int[] arr : arrayInArray) {
+            for (int num : arr) {
+                System.out.print(num);
             }
             System.out.println();
         }
