@@ -17,10 +17,14 @@ public class Product {
         return code;
     }
     public boolean areTheyEqual (Product p){
-        return name.equals(p);
+        return name.equals(p.getName()); // elfelejtetted a getterét a pnek
+    }
+    public boolean areTheyEqualPlus (Product p){
+        return name.equals(p) && code.length()
     }
 
-    public static void main(String[] args) {
+
+        public static void main(String[] args) {
         Product product1 = new  Product("Alma","001");
 
         Product product2 = new  Product("Alma","001");
