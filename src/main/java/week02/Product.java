@@ -20,7 +20,8 @@ public class Product {
         return name.equals(p.getName()); // elfelejtetted a getterét a pnek
     }
     public boolean areTheyEqualPlus (Product p){
-        return name.equals(p) && (code.length() + 1) >= p.getCode().length();
+        boolean areCodeLengthOk = code.length() - p.getCode().length() <= 1 && code.length() - p.getCode().length() >= 1;
+        return name.equals(p) && areCodeLengthOk;
 
     }
 
