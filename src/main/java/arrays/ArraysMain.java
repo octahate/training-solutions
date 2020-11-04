@@ -26,6 +26,13 @@ public class ArraysMain {
         int[] b = {4,3,2,1};
         System.out.println(arraysMain.wonLottery (a,b));
 
+        int[][] arrayInArray ={{1,2,3},{2,3,4},{1,2,3,4,5}};
+        for(int i=0;i<arrayInArray.length;i++){
+            for(int j=0;j<arrayInArray[i].length;j++){
+                System.out.print(arrayInArray[i][j]);
+            }
+            System.out.println();
+        }
     }
 
 
