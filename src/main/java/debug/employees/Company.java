@@ -9,10 +9,10 @@ public class Company {
 
     private List<Employee> employees;
 
-    public Company (List<Employee> employees){
+    public void Company (List<Employee> employees){
         this.employees = employees;
     }
-    public addEmployee (Employee employee){
+    public void addEmployee (Employee employee){
         employees.add(employee);
     }
 
