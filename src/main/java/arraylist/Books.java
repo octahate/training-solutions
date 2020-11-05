@@ -32,6 +32,7 @@ public class Books {
         books.add("Harry Potter és a Tűz Serlege");
         books.add("Harry Potter és a Bölcsek Köve");
         System.out.println(books.getTitles());
+        System.out.println(books.getTitles().size());
         System.out.println(books.findAllByPrefix("Harry"));
 
     }
