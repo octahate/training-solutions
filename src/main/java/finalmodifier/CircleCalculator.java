@@ -1,7 +1,7 @@
 package finalmodifier;
 
 public class CircleCalculator {
-    private static final double PI = 3.14;
+    public static final double PI = 3.14;
 
     public static double getPI() {
         return PI;
