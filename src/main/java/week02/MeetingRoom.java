@@ -5,9 +5,9 @@ public class MeetingRoom {
     private int length;
     private int width;
 
-    public MeetingRoom(String name, int lenght, int width) {
+    public MeetingRoom(String name, int length, int width) {
         this.name = name;
-        this.length = lenght;
+        this.length = length;
         this.width = width;
     }
 
