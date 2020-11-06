@@ -7,7 +7,9 @@ public class Controller {
 
     public void readOffice() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Hány darab tárgyalót rögzítenél?");
+        System.out.println("Üdvözöljük a Tárgyaló Nyilvántató Szoftverben!");
+        System.out.println("Először az irodaház tárgyalóit kell felvennünk:");
+        System.out.println("Hány darab tárgyalót rögzítene?");
         int amount = scanner.nextInt();
         for (int i = 0; i < amount; i++) {
             System.out.println((i + 1) + ". tárgyaló neve?");
@@ -37,7 +39,7 @@ public class Controller {
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
         if (choice == 1) {
-            office.printNamesReverse();
+            office.printNames();
         } else {
             if (choice == 2) {
                 office.printNamesReverse();
@@ -63,14 +65,16 @@ public class Controller {
                                     System.out.println("Mekkora méretű termet keres?");
                                     int area = scanner.nextInt();
                                     office.printAreasLargerThan(area);
+                                } else {
+                                    System.out.println("Nem megfelelő szám. Kilépés.");
                                 }
                             }
                         }
                     }
                 }
             }
-
         }
+
     }
 
 
