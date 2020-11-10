@@ -9,7 +9,11 @@ public class WorkdayCalculatorMain {
         String day = scanner.nextLine();
         System.out.println("hány napot utána?");
         int amount = scanner.nextInt();
-        
+
+        int x = 5;
+        int y = 2;
+        int z = x++ + (x - 4) * y - 2;
+        System.out.println(x + " " + z);
 
 
     }

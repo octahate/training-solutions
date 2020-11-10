@@ -19,7 +19,7 @@ public class workdayCalculator {
         Day day = firstDay; //a napot behelyezzük egy day nevű Day típusú változóba
         for (int i = 0; i < numberOfDays; i++) { //number of days hogy meddig iteráljuk
             types.add(day.getDayType()); // a types listához hozzáadjuk a nap DayTypeját
-            day = nextDay(); //a következő napra rátérünk
+            day = nextDay(day); //a következő napra rátérünk
         }
         return types;
     }
