@@ -6,6 +6,7 @@ import java.util.List;
 public class Position {
     private String name;
     private long bonus;
+    public static final int LIMIT = 150_000;
 
     public Position(String name, int bonus) {
         this.name = name;
@@ -34,10 +35,12 @@ public class Position {
         positions.add(second);
         positions.add(third);
         positions.add(fourth);
+        positions.add (new Position("Dóri", 180_000));
+
 
         for (int i = 0; i < positions.size(); i++){
-            if (positions.get(i).bonus >150000) {
-                System.out.println(positions.get(i));
+            if (positions.get(i).bonus > LIMIT) {
+                System.out.println(positions.get(i));  //nem kell meghívni a toString metódust
             }
         }
 
