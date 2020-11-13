@@ -6,7 +6,7 @@ public class operation {
 
     public operation(String enumeration) {
         int cross = enumeration.indexOf("+");
-        String leftString = enumeration.substring(0,cross-1);
+        String leftString = enumeration.substring(0,cross);
         String rightString = enumeration.substring(cross+1);
         this.left = Integer.parseInt(leftString);
         this.right = Integer.parseInt(rightString);
