@@ -17,6 +17,10 @@ public class CircleMain {
         System.out.println(circletwo.area());
         System.out.println(circletwo.perimeter());
 
+        int a = 10;
+        double b = (15 - a) / 2 * (double) 3;
+        System.out.println(b); //nem értem miért 6
+
 
     }
 }
