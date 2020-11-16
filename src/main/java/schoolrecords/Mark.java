@@ -23,11 +23,11 @@ public class Mark {
         this.tutor = tutor;
     }
 
-    public Mark(String markType, Subject subject, Tutor tutor) {
-        this.subject = subject;
-        this.tutor = tutor;
-        // markType =  //
-    }
+    // public Mark(String markType, Subject subject, Tutor tutor) {
+    //   this.subject = subject;
+    //    this.tutor = tutor;
+
+    //}
 
     @Override
     public String toString() {
