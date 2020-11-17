@@ -21,4 +21,4 @@ public class NameChanger {
             fullname = fullname.replace(fullname.substring(fullname.indexOf(" ") + 1), str);
         }
     }
-}
+
