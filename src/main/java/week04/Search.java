@@ -8,7 +8,7 @@ public class Search {
             List<Integer> result = new ArrayList<>();
             for (int i=0; i< str.length(); i++)
                 str.charAt(i) == char temp;
-            if (char.equals(temp)) {
+            if (c == temp) {
                 result.add(str.indexOf(c));
             }
                 return result;
