@@ -1,4 +1,4 @@
-package controliteration;
+package controliteration.dictionary;
 
 import java.util.List;
 
@@ -19,12 +19,13 @@ public class DictionaryItem {
         return translations;
     }
 
-    public void addTranslations(List<String> translations) {
-        for (int i = 0; i< translations.size(); i++){
-            if (this.translations.contains(translations.get(i))) {
-            } else {
-                this.translations.add(translations.get(i));
+    public void addTranslations(List<String> newTranslations) {
+        for (String newTranslation: newTranslations) {
+            if (!translations.contains(newTranslation)) {
+                translations.add(newTranslation);
             }
         }
     }
 }
+
+//ez valamiért nem megy ???
