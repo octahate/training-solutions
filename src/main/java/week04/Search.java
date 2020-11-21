@@ -8,9 +8,9 @@ public class Search {
             List<Integer> result = new ArrayList<>();
             for (int i=0; i< str.length(); i++)
                  if (c == str.charAt(i)){
-                result.add(i));
+                result.add(i);
             }
                 return result;
         }
     }
-}
+
