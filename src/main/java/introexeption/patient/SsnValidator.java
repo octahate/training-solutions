@@ -29,7 +29,7 @@ public class SsnValidator {
             return isIsGood;
 
             //something is not okay but idk what prolly mathematical error
-        } else isIsGood = false;
+        } else isIsGood = true;
         return isIsGood;
 
     }
