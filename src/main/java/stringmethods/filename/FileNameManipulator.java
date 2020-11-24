@@ -2,6 +2,7 @@ package stringmethods.filename;
 
 public class FileNameManipulator {
 
+
     public void isItLegal (String what){
         if (what.isBlank()) {
             throw new IllegalArgumentException("Empty string!");
