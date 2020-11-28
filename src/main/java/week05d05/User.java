@@ -8,15 +8,26 @@ public class User {
     public User(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
-        if (email.contains("@") && email.contains(".") == true) {
-            this.email = email;
-        } else {
-            throw new IllegalArgumentException("Email missing @ or .");
+        this.email = email;
+        if (email.contains("@") || email.contains(".") == false) {
+            throw new IllegalArgumentException("Email missing \'@\' or \'.\'");
         }
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 
     public String getFullName() {
         return firstName + " " + lastName;
     }
 }
+
