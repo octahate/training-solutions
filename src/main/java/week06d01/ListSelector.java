@@ -4,18 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListSelector {
-    List<String> words = new ArrayList<>();
+    private List<String> words = new ArrayList<>();
+
+    public void setWords(List<String> words) {
+        this.words = words;
+    }
 
     public String retu (List<String> words){
         if (words == null){
-            throw new NullPointerException("A lista üres");
+            throw new IllegalArgumentException("A lista üres");
         }
         String retu = "";
-        for (int i=0; i < words.size(); i++){
-            if (i % 2 == 0){
-                retu = retu + words.get(i);
+        for (int i=0; i < words.size(); i+=2){
+                retu = retu + words.get(i)+ ",";
             }
-        }
         if (retu.length() > 0 ){
             retu = "[" + retu + "]";
         }
