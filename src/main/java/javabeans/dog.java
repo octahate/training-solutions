@@ -1,6 +1,6 @@
 package javabeans;
 
-public class dog {
+public class Dog {
     private String name;
     private int age;
     private boolean pedigree;
