@@ -1,4 +1,4 @@
-package methodpass;
+package methodpass.troopers;
 
 public class Position {
     private double posX;
