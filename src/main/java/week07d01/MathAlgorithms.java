@@ -4,7 +4,7 @@ public class MathAlgorithms {
 
     public static boolean isPrime (int x) {
         if (x > 0 ){
-            throw new IllegalArgumentException("Pozitív legyen");
+            throw new IllegalArgumentException("Pozitív legyen!");
         }
         boolean isPrime = true;
         if (x == 1 && x == 2){
