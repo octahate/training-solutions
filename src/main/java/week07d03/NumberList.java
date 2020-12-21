@@ -20,6 +20,7 @@ public class NumberList {
         NumberList numlist = new NumberList();
         System.out.println(numlist.isIncreasing(Arrays.asList(1,2,2,3)));
         System.out.println(numlist.isIncreasing(Arrays.asList(3,2,2,3)));
+        System.out.println(numlist.isIncreasing(Arrays.asList(1,2,4,3)));
 
     }
 }
