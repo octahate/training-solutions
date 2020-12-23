@@ -15,8 +15,11 @@ public class ShippedBook extends Book {
         return (super.purchase(pieces) + shippingCost);
     }
 
+
     @Override
     public String toString() {
         return super.getTitle()+":"+price+" - "+shippingCost;
+
+
     }
 }
