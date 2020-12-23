@@ -35,7 +35,7 @@ public class Car {
         if (fuel - (fuelRate*km) < 0){
             throw new IllegalArgumentException("Not enough fuel available!");
         }
-        fuel = fuel - (fuelRate*km);
+    modifyFuelAmount(-(fuelRate*km));
     }
 
     public double calculateRefillAmount(){
