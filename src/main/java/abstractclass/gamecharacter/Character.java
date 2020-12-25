@@ -17,8 +17,20 @@ public abstract class Character {
         return (hitPoint > 0);
     }
 
+    public Point getPosition() {
+        return position;
+    }
+
+    public int getHitPoint() {
+        return hitPoint;
+    }
+
+    public Random getRandom() {
+        return random;
+    }
+
     protected int getActualPrimaryDamage(){
-        return random.nextInt(11);
+        return random.nextInt(10)+1;
     }
 
     protected int getActualPrimaryDefence(){
@@ -26,11 +38,12 @@ public abstract class Character {
     }
 
     protected void hit(Character enemy, int damage){
-      int defence = enemy.getActualPrimaryDefence();
-      if (defence < damage){
+      int defense = enemy.getActualPrimaryDefence();
+      if (defense < damage){
           enemy.decreaseHitPoint(damage);
       }
     }
+
     public void primaryAttack(Character enemy){
         enemy.hit(enemy, enemy.getActualPrimaryDamage());
     }
