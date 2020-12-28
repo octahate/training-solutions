@@ -79,7 +79,7 @@ public class NameBuilder {
         StringBuilder sb = new StringBuilder();
         int start = name.indexOf(delete);
         sb.append(name);
-        sb.delete(start, (start+delete.length()+1);
+        sb.delete(start, (start+delete.length()+1));
         return sb.toString();
     }
 
