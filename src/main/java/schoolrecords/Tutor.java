@@ -4,26 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tutor {
-    private String name;
-    private List<String> taughtSubjects = new ArrayList<>();
 
-    public Tutor(String name, List<String> taughtSubjects) {
-        this.name = name;
-        this.taughtSubjects = taughtSubjects;
-    }
+    private String name;
+    private List<Subject> taughtSubjects;
 
     public String getName() {
         return name;
     }
 
-    public boolean tutorTeachingSubject(String Subject) {
-        int count = 0;
-        boolean value = false;
-        do {
-            value = Subject.equals(taughtSubjects.get(count));
-            count ++;
-        } while (value == true || count+1 == taughtSubjects.size());
-        return value;
+    public Tutor(String name, List<Subject> taughtSubjects) {
+        this.name = name;
+        this.taughtSubjects = taughtSubjects;
+    }
+
+    public boolean tutorTeachingSubject(Subject subject) {
+        for (int i = 0; i < taughtSubjects.size(); i++) {
+            if (subject.getSubjectName().equals(taughtSubjects.get(i).getSubjectName())){
+                return true;
+            }
+        }
+        return false;
     }
 }
+
 

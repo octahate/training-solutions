@@ -5,6 +5,12 @@ public class Mark {
     private Subject subject;
     private Tutor tutor;
 
+    private static void isItNull(Object object) {
+        if (object == null) {
+            throw new IllegalArgumentException("Both subject and tutor must be provided!");
+        }
+    }
+
     public MarkType getMarkType() {
         return markType;
     }
@@ -18,23 +24,24 @@ public class Mark {
     }
 
     public Mark(MarkType markType, Subject subject, Tutor tutor) {
+        isItNull(subject);
+        isItNull(tutor);
         this.markType = markType;
         this.subject = subject;
         this.tutor = tutor;
     }
 
-    // public Mark(String markType, Subject subject, Tutor tutor) {
-    //   this.subject = subject;
-    //    this.tutor = tutor;
+    public Mark(String markType, Subject subject, Tutor tutor) {
+        isItNull(subject);
+        isItNull(tutor);
+        this.markType = MarkType.valueOf(markType);
+        this.subject = subject;
+        this.tutor = tutor;
+    }
 
-    //}
 
     @Override
     public String toString() {
-        return "Mark{" +
-                "markType=" + markType +
-                ", subject=" + subject +
-                ", tutor=" + tutor +
-                '}';
+        return markType.getDescription() + "(" + markType.getValue() + ")";
     }
 }
