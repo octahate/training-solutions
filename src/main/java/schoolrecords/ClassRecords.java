@@ -44,14 +44,14 @@ public class ClassRecords {
     }
 
     public double calculateClassAverage() {
-        if (students.size()==0){
+        if (students.size() == 0) {
             throw new ArithmeticException("No student in the class, average calculation aborted!");
         }
         double sumOfAvg = 0.0;
         for (int i = 0; i < students.size(); i++) {
             sumOfAvg = sumOfAvg + students.get(i).calculateAverage();
         }
-        if (sumOfAvg == 0.0){
+        if (sumOfAvg == 0.0) {
             throw new ArithmeticException("No marks present, average calculation aborted!");
         }
 
@@ -59,28 +59,28 @@ public class ClassRecords {
     }
 
     public double calculateClassAverageBySubject(Subject subject) {
-        if (students.size()==0){
+        if (students.size() == 0) {
             throw new ArithmeticException("No student in the class, average calculation aborted!");
         }
-        double sumOfAvg = 0.0;
-        int whoHasIt = 0;
-        for (int i = 0; i < students.size(); i++) {
-            double studentAverage;
-            studentAverage = students.get(i).calculateSubjectAverage(subject);
+        double classAverage = 0;
+        int countStudent = 0;
+        for (Student student : students){
+            double studentAverage = student.calculateSubjectAverage(subject);
             if (studentAverage != 0){
-                sumOfAvg = sumOfAvg + studentAverage;
-                whoHasIt++;
-            }
-            if (whoHasIt == 0){
-                throw new ArithmeticException("No marks present, average calculation aborted!");
+                classAverage += studentAverage;
+                countStudent++;
             }
         }
-        return Math.round(100 * sumOfAvg / whoHasIt ) / 100.0;
+        if (countStudent == 0){
+            throw new ArithmeticException("No marks present, average calculation aborted!");
+        }
+        return Math.round(100 * classAverage / countStudent ) / 100.0;
     }
+
 
     public Student findStudentByName(String name) {
 
-        if (name == null ||name.isBlank()){
+        if (name == null || name.isBlank()) {
             throw new IllegalArgumentException("Student name must not be empty!");
         }
 
@@ -96,7 +96,7 @@ public class ClassRecords {
     }
 
     public Student repetition() {
-        if (students.size() == 0){
+        if (students.size() == 0) {
             throw new IllegalStateException("No students to select for repetition!");
         }
         return students.get(rnd.nextInt(students.size()));
@@ -117,8 +117,8 @@ public class ClassRecords {
             names.append(",");
             names.append(" ");
         }
-        names.deleteCharAt(names.toString().length()-2);
-        names.deleteCharAt(names.toString().length()-1);
+        names.deleteCharAt(names.toString().length() - 2);
+        names.deleteCharAt(names.toString().length() - 1);
         return names.toString();
     }
 
