@@ -1,16 +1,19 @@
 package catalog;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CatalogItem {
 
-    private List<Feature> features;
+    private List<Feature> features = new ArrayList<>();
     private int price;
     private String registrationNumber;
 
-    public CatalogItem(String registrationNumber, int price, List<Feature> features) {
-        this.features = features;
+    public CatalogItem(String registrationNumber, int price, Feature... features) {
+        for (int i = 0; i <features.length; i++) {
+            this.features.add(features[i]);
+        }
         this.price = price;
         this.registrationNumber = registrationNumber;
     }
@@ -62,15 +65,16 @@ public class CatalogItem {
     }
 
     public int fullLengthAtOneItem() {
+        int lengthSum = 0;
         for (Feature thisOne : features) {
             if (thisOne instanceof AudioFeatures) {
-                return ((AudioFeatures) thisOne).getLength();
+                lengthSum += ((AudioFeatures) thisOne).getLength();
             }
         }
-        return 0;
+        return lengthSum;
     }
 
-     public int numberOfPagesAtOneItem() {
+    public int numberOfPagesAtOneItem() {
         for (Feature thisOne : features) {
             if (thisOne instanceof PrintedFeatures) {
                 return ((PrintedFeatures) thisOne).getNumberOfPages();
@@ -78,8 +82,6 @@ public class CatalogItem {
         }
         return 0;
     }
-
-
 
 
 }
