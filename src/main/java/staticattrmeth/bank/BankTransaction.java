@@ -1,4 +1,4 @@
-package staticattrmeth;
+package staticattrmeth.bank;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

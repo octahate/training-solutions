@@ -1,4 +1,4 @@
-package methodparam;
+package methodparam.measuring;
 
 public class Measurement {
     private double[] values;
@@ -9,7 +9,7 @@ public class Measurement {
 
     public int findFirstIndexInLimit(int lower, int upper) {
         for (int i= 0; i < values.length; i++ ) {
-            if (values[i] > lower || values [i] < upper ){
+            if (values[i] > lower && values [i] < upper ){
                 return i;
             }
         }
@@ -19,7 +19,7 @@ public class Measurement {
     public double minimum() {
         double temp = values[0];
         for (int i = 1; i < values.length; i++) {
-            if (temp <= values[i]) {
+            if (temp >= values[i]) {
                 temp = values [i];
             }
         }
@@ -29,7 +29,7 @@ public class Measurement {
     public double maximum() {
         double temp = values[0];
         for (int i = 1; i < values.length; i++) {
-            if (temp >= values[i]) {
+            if (temp <= values[i]) {
                 temp = values [i];
             }
         }

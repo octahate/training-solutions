@@ -2,7 +2,6 @@ package staticattrmeth.bank;
 
 
 import org.junit.jupiter.api.Test;
-import staticattrmeth.BankTransaction;
 
 import java.math.BigDecimal;
 

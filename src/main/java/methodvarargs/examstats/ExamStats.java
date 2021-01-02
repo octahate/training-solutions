@@ -1,4 +1,4 @@
-package methodvarargs;
+package methodvarargs.examstats;
 
 public class ExamStats {
     private int maxPoints;
@@ -8,6 +8,9 @@ public class ExamStats {
     }
 
     public int getNumberOfTopGrades(int limitInPercent, int... results){
+        if (results == null || results.length == 0){
+            throw new IllegalArgumentException("Number of results must not be empty!");
+        }
         int cutoff = (int) (limitInPercent * maxPoints * 0.01);
         int achieve = 0;
         for (int result : results) {
@@ -19,6 +22,9 @@ public class ExamStats {
     }
 
     public boolean hasAnyFailed (int limitInPercent, int... results){
+        if (results.length == 0){
+            throw new IllegalArgumentException("Number of results must not be empty!");
+        }
         int cutoff = (int) (limitInPercent * maxPoints * 0.01);
         for (int result : results) {
             if (result < cutoff){
