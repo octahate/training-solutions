@@ -29,4 +29,11 @@ public class BodyMass {
             return BmiCategory.OVERWEIGHT;
         return BmiCategory.NORMAL;
     }
+
+    public boolean isThinnerThan(BodyMass other) {
+        if (other.bodyMassIndex() > this.bodyMassIndex()) {
+            return true;
+        } return false;
+    }
 }
+
