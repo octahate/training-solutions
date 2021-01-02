@@ -1,10 +1,13 @@
-package immutable;
+package immutable.satellite;
 
 public class Satellite {
     private CelestialCoordinates destinationCoordinates;
     private String registerIdent;
 
     public Satellite(CelestialCoordinates destinationCoordinates, String registerIdent) {
+        if (registerIdent.isBlank()){
+            throw new IllegalArgumentException("Register ident must not be empty!");
+        }
         this.destinationCoordinates = destinationCoordinates;
         this.registerIdent = registerIdent;
     }

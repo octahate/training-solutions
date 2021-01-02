@@ -1,4 +1,4 @@
-package immutable;
+package immutable.satellite;
 
 public class CelestialCoordinates {
     private final int ex;
@@ -25,9 +25,9 @@ public class CelestialCoordinates {
 
     @Override
     public String toString() {
-        return "CelestialCoordinates:" +
+        return "CelestialCoordinates: " +
                 "x=" + ex +
-                ",y=" + why +
-                ",z=" + zedd ;
+                ", y=" + why +
+                ", z=" + zedd ;
     }
 }
