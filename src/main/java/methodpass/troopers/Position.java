@@ -17,8 +17,10 @@ public class Position {
         return posY;
     }
 
-    public double distanceFrom (Position position){
-        double distance = Math.sqrt(Math.pow(2, this.posX - position.getPosX()) + Math.pow(2, this.posY - position.getPosY()));
-        return distance;
+    public double distanceFrom(Position position) {
+        if (position == null) {
+            throw new IllegalArgumentException("Cannot calculate distance from unknown position");
+        }
+        return Math.sqrt(Math.pow(this.posX - position.posX, 2) + Math.pow(this.posY - position.posY, 2));
     }
 }

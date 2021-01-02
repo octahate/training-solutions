@@ -5,7 +5,11 @@ public class Trooper {
     private Position position;
 
     public Trooper(String name) {
+        if (name == null ||name.isBlank()){
+            throw new IllegalArgumentException("Name must not be empty.");
+        }
         this.name = name;
+        position = new Position(0,0);
     }
 
     public String getName() {
@@ -17,6 +21,9 @@ public class Trooper {
     }
 
     public void changePosition(Position target) {
+        if (target == null){
+            throw new IllegalArgumentException("Target can't be null!");
+        }
         position = target;
     }
 
