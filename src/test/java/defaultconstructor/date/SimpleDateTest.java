@@ -1,5 +1,6 @@
-package defaultconstructor;
+package defaultconstructor.date;
 
+import defaultconstructor.date.SimpleDate;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;

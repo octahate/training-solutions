@@ -1,4 +1,4 @@
-package defaultconstructor;
+package defaultconstructor.date;
 
 public class SimpleDate {
     private int year;

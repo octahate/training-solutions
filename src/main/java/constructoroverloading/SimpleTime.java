@@ -1,7 +1,5 @@
 package constructoroverloading;
 
-import defaultconstructor.SimpleDate;
-
 public class SimpleTime {
     private int hours;
     private int minutes;
