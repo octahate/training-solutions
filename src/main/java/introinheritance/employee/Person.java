@@ -9,6 +9,14 @@ public class Person {
         this.address = address;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
     public void migrate(String newAddress) {
         address = newAddress;
     }

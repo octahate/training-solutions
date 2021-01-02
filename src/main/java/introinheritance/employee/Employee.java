@@ -13,6 +13,6 @@ public class Employee extends Person{
     }
 
     public void raiseSalary(int percent){
-        salary = salary + (salary * (percent/100));
+        salary = salary +  (salary * ((double) percent/100));
     }
 }
