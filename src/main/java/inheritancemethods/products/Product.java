@@ -1,4 +1,4 @@
-package inheritancemethods;
+package inheritancemethods.products;
 
 import java.math.BigDecimal;
 
@@ -24,4 +24,15 @@ public class Product {
         return unitWeight.multiply(new BigDecimal(pieces));
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public BigDecimal getUnitWeight() {
+        return unitWeight;
+    }
+
+    public int getNumberOfDecimals() {
+        return numberOfDecimals;
+    }
 }
