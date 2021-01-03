@@ -4,12 +4,10 @@ public class Point {
 
     private long x;
     private long y;
-    private long z;
 
-    public Point(long x, long y, long z) {
+    public Point(long x, long y) {
         this.x = x;
         this.y = y;
-        this.z = z;
     }
 
     public long getX() {
@@ -20,9 +18,10 @@ public class Point {
         return y;
     }
 
-    public long getZ() {
-        return z;
+    public double distance (Point other){
+        return Math.round(Math.sqrt((Math.pow((other.getX() - this.x),2) + (Math.pow((other.getY() - this.y),2)))));
     }
+
 }
 
 

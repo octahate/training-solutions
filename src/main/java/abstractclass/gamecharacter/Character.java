@@ -8,12 +8,13 @@ public abstract class Character {
     private int hitPoint = 100;
     private Random random;
 
-    public Character(Point position, Random random) {
+    public Character(Point position) {
         this.position = position;
+        Random random = new Random();
         this.random = random;
     }
 
-    public boolean isAlive (){
+    public boolean isAlive() {
         return (hitPoint > 0);
     }
 
@@ -29,26 +30,26 @@ public abstract class Character {
         return random;
     }
 
-    protected int getActualPrimaryDamage(){
-        return random.nextInt(10)+1;
+    protected int getActualPrimaryDamage() {
+        return random.nextInt(10) + 1;
     }
 
-    protected int getActualPrimaryDefence(){
+    protected int getActualDefence() {
         return random.nextInt(6);
     }
 
-    protected void hit(Character enemy, int damage){
-      int defense = enemy.getActualPrimaryDefence();
-      if (defense < damage){
-          enemy.decreaseHitPoint(damage);
-      }
+    protected void hit(Character enemy, int damage) {
+        int defense = enemy.getActualDefence();
+        if (defense < damage) {
+            enemy.decreaseHitPoint(damage);
+        }
     }
 
-    public void primaryAttack(Character enemy){
+    public void primaryAttack(Character enemy) {
         enemy.hit(enemy, enemy.getActualPrimaryDamage());
     }
 
-    private void decreaseHitPoint(int diff){
+    private void decreaseHitPoint(int diff) {
         hitPoint = hitPoint - diff;
     }
 
