@@ -13,9 +13,8 @@ public class Item {
     }
 
     public double getTaxAmount(){
-        return ((double) vatPercent * nettoPrice) / 100;
+        return nettoPrice * (1.0 * vatPercent / 100);
     }
-
 
     public String getBarcode() {
         return barcode;
