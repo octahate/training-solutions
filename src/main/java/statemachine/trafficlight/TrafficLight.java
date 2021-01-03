@@ -1,4 +1,4 @@
-package statemaschine.trafficlight;
+package statemachine.trafficlight;
 
 
 public enum TrafficLight {
