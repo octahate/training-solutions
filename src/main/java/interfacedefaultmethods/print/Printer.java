@@ -1,4 +1,4 @@
-package interfacedefaultmethods;
+package interfacedefaultmethods.print;
 
 public class Printer {
 

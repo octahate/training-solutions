@@ -7,8 +7,8 @@ public class AxeWarrior extends Character {
 
     public static final int SECONDARY_DAMAGE_MULTIPLIER = 2;
 
-    public AxeWarrior(Point position) {
-        super(position);
+    public AxeWarrior(Point position, Random random) {
+        super(position, random);
     }
 
     private int getActualSecondaryDamage() {

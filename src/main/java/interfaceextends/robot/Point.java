@@ -1,4 +1,4 @@
-package interfaceextends;
+package interfaceextends.robot;
 
 public class Point {
 

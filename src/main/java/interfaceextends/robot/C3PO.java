@@ -1,24 +1,32 @@
-package interfaceextends;
+package interfaceextends.robot;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
 public class C3PO implements MoveableRobot{
 
     Point position;
     int angle;
-    List<Point> path;
+    List<Point> path = new ArrayList<>();
+
+    public Point getPosition() {
+        return position;
+    }
+
+    public int getAngle() {
+        return angle;
+    }
 
     public C3PO(Point position) {
         this.position = position;
         angle = 0;
-        path.add(position);
     }
 
     @Override
     public void moveTo(Point position) {
         this.position = position;
         path.add(position);
+
     }
 
     @Override

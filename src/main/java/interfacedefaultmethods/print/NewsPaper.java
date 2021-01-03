@@ -1,10 +1,15 @@
-package interfacedefaultmethods;
+package interfacedefaultmethods.print;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class NewsPaper implements Printable {
 
-    private List<String> content;
+    private List<String> content = new ArrayList<>();
+
+    public void addPage(String page){
+        content.add(page);
+    }
 
     @Override
     public int getLength() {

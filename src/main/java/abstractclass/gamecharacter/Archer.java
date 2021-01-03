@@ -6,9 +6,9 @@ public class Archer extends Character {
 
     private int numberOfArrow;
 
-    public Archer(Point position, Random random, int numberOfArrow) {
+    public Archer(Point position, Random random) {
         super(position, random);
-        this.numberOfArrow = 100;
+        numberOfArrow = 100;
     }
 
     public int getNumberOfArrow() {
@@ -20,7 +20,7 @@ public class Archer extends Character {
     }
 
     private void shootingAnArrow(Character enemy){
-        numberOfArrow -= numberOfArrow;
+        numberOfArrow--;
         super.hit(enemy,getActualSecondaryDamage());
     }
 

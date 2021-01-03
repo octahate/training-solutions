@@ -8,9 +8,8 @@ public abstract class Character {
     private int hitPoint = 100;
     private Random random;
 
-    public Character(Point position) {
+    public Character(Point position, Random random) {
         this.position = position;
-        Random random = new Random();
         this.random = random;
     }
 

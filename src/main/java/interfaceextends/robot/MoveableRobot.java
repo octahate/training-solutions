@@ -1,4 +1,4 @@
-package interfaceextends;
+package interfaceextends.robot;
 
 import java.util.List;
 
