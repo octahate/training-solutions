@@ -13,7 +13,7 @@ public enum OrderState implements Deletable {
     },
     PREPARED{
         public boolean canDelete() {
-            return false;
+            return true;
         }
     },
     ONBOARD{
