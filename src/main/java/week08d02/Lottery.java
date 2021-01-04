@@ -8,19 +8,31 @@ import java.util.Random;
 
 public class Lottery {
 
+    private Random rnd;
+    private StringBuilder numberstext;
+    private List<Integer> numbersList;
 
-    public static String getNumbers() {
-        Random rnd = new Random();
-        StringBuilder numberstext = new StringBuilder();
-        int[] numbers = rnd.ints(5, 1, 91).toArray();
-        for (int i = 0; i < numbers.length; i++) {
-            numberstext.append(numbers[i]);
-            numberstext.append(", ");
+    public Lottery() {
+        rnd = new Random();
+        numberstext = new StringBuilder();
+        numbersList = new ArrayList<>();
+        getNumbers();
+    }
+
+    public List<Integer> getNumbersList() {
+        return numbersList;
+    }
+
+    public String getNumbers() {
+        while (numbersList.size() < 5) {
+            int newNumber = rnd.nextInt(91) + 1;
+            if (!numbersList.contains(newNumber)) {
+                numbersList.add(newNumber);
+                numberstext.append(newNumber);
+                numberstext.append(", ");
+            }
         }
         return numberstext.toString();
     }
 
-    public static void main(String[] args) {
-        System.out.println(getNumbers());
-    }
 }
