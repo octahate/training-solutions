@@ -1,7 +1,6 @@
-package wek06d01;
+package week06d01;
 
 import org.junit.jupiter.api.Test;
-import week06d01.ListSelector;
 
 import java.util.Arrays;
 
