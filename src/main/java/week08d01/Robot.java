@@ -39,7 +39,7 @@ public class Robot {
     }
 
     public boolean isItLegalMove(char movement){
-        if (movement != 'F' || movement != 'L' || movement != 'J' || movement != 'B'){
+        if (movement != 'F' && movement != 'L' && movement != 'J' && movement != 'B'){
             throw new IllegalArgumentException("Illegal movement!");
         }
         return true;
@@ -49,27 +49,23 @@ public class Robot {
     public String toString() {
         return "Robot position:" +
                 "x=" + x +
-                ", y=" + y +
-                '}';
+                ", y=" + y;
     }
 
     public String move(String coordinates){
         for (int i = 0; i < coordinates.length(); i++) {
             isItLegalMove(coordinates.charAt(i));
-            switch(coordinates.charAt(i)){
-                case 'F':
-                    moveUp();
-                    break;
-                case 'L':
-                    moveDown();
-                    break;
-                case 'J':
-                    moveRight();
-                    break;
-                case 'B':
-                    moveLeft();
-                    break;
+            switch (coordinates.charAt(i)) {
+                case 'F' -> moveUp();
+                case 'L' -> moveDown();
+                case 'J' -> moveRight();
+                case 'B' -> moveLeft();
             }
         } return toString();
+    }
+
+    public void  reset(){
+        x=0;
+        y=0;
     }
 }
