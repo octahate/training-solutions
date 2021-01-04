@@ -15,38 +15,28 @@ public class MathAlgorhythms {
             }
         }
         for (int j = second; j != 0; j--) {
-            if (first % j == 0) {
+            if (second % j == 0) {
                 seconddivisors.add(j);
             }
         }
-       int solution = 1;
-       if (firtdivisors.size() > seconddivisors.size()){
-           for (int i = 0; i < firtdivisors.size(); i++) {
-               for (int j = 0; j < seconddivisors.size(); j++) {
-                   if (firtdivisors.get(i).equals(seconddivisors.get(j))){
-                       return solution = firtdivisors.get(i);
-                   }
-               }
-           }
-       }
-       else {
+        int solution = 1;
+        if (firtdivisors.size() > seconddivisors.size()) {
+            for (int m = 0; m < firtdivisors.size(); m++) {
+                for (int n = 0; n < seconddivisors.size(); n++) {
+                    if (firtdivisors.get(m).equals(seconddivisors.get(n))) {
+                        return solution = firtdivisors.get(m);
+                    }
+                }
+            }
+        } else {
             for (int k = 0; k < seconddivisors.size(); k++) {
                 for (int l = 0; l < firtdivisors.size(); l++) {
-                    if (firtdivisors.get(k).equals(seconddivisors.get(l))){
+                    if (firtdivisors.get(l).equals(seconddivisors.get(k))) {
                         return solution = firtdivisors.get(l);
                     }
                 }
             }
         }
-       return solution;
-    }
-
-
-    public static void main(String[] args) {
-        System.out.println(greatestCommonDivisor(8,4));
-        System.out.println(greatestCommonDivisor(6,3));
-        System.out.println(greatestCommonDivisor(10,11));
-        System.out.println(greatestCommonDivisor(1,1));
-
+        return solution;
     }
 }

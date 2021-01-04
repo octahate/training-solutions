@@ -6,13 +6,21 @@ import java.util.List;
 public class Hiking {
 
     List<Coordinates> coordinates;
-    List<Float> heights;
+    List<Float> heights = new ArrayList<>();
 
     public Hiking(List<Coordinates> allCoordinates) {
         this.coordinates = allCoordinates;
         for (Coordinates actualPlace : coordinates){
             heights.add(actualPlace.zCoordinate);
         }
+    }
+
+    public List<Coordinates> getCoordinates() {
+        return coordinates;
+    }
+
+    public List<Float> getHeights() {
+        return heights;
     }
 
     public float getPlusElevation(){
@@ -27,7 +35,7 @@ public class Hiking {
         } return sum;
     }
 
-    public float getPlusElevation(List<Float> heights){
+    public static float getPlusElevation(List<Float> heights){
         if (heights.size() < 2 ){
             throw new IllegalArgumentException("The coordinates list can't be empty or shorter than 2!");
         }
