@@ -3,12 +3,13 @@ package week10d02;
 import java.util.List;
 
 public class MaxTravel{
+
     public static final int MAX_AMOUNT_OF_STOPS = 30;
 
     public static int getMaxIndex(List<Integer> stops){
         int[] possibleStops = new int[30];
         for (int i = 0; i < stops.size(); i++) {
-            if (stops.get(i) > MAX_AMOUNT_OF_STOPS || stops.size() < 1 ){
+            if (stops.get(i) > MAX_AMOUNT_OF_STOPS || stops.isEmpty() ){
                 throw new IllegalArgumentException("Stop list is invalid!");
             }
             possibleStops[stops.get(i)]++;
