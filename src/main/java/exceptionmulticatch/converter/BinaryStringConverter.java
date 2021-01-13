@@ -3,6 +3,8 @@ package exceptionmulticatch.converter;
 public class BinaryStringConverter {
 
     public boolean[] binaryStringToBooleanArray(String input) {
+        if (input == null)
+            throw new NullPointerException("binaryString null");
         boolean[] result = new boolean[input.length()];
         for (int i = 0; i < input.length(); i++) {
             switch (input.charAt(i)) {
@@ -13,13 +15,15 @@ public class BinaryStringConverter {
                     result[i] = false;
                     break;
                 default:
-                    throw new IllegalArgumentException("Input String invalid!");
+                    throw new IllegalArgumentException("binaryString not valid");
             }
         }
         return result;
     }
 
     public String booleanArrayToBinaryString(boolean[] input) {
+        if (input == null)
+            throw new NullPointerException("booleans null");
         StringBuilder result = new StringBuilder();
         if (input.length == 0) {
             throw new IllegalArgumentException("Input Array invalid!");
