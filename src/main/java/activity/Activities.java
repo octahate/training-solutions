@@ -43,10 +43,9 @@ public class Activities {
                 distances[currentActivity.getType().ordinal()] += currentActivity.getDistance();
             }
         }
-        ActivityType[] types = ActivityType.values();
         List<Report> result = new ArrayList<>();
-        for (int i = 0; i < types.length; i++) {
-            result.add(new Report(types[i], distances[i]));
+        for (int i = 0; i < distances.length; i++) {
+            result.add(new Report(ActivityType.values()[i], distances[i]));
         }
         return result;
     }
