@@ -14,7 +14,6 @@ public class TemperaturesReader {
         } catch (IOException e) {
             throw new IllegalStateException("Can't reach file!");
         }
-       Temperatures solution = new Temperatures(bytes);
-        return solution;
+        return new Temperatures(bytes);
     }
 }
