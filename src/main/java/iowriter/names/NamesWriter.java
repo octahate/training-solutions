@@ -16,10 +16,10 @@ public class NamesWriter {
 
     }
 
-    public void addAndWrite(String name){
-        try(BufferedWriter bufferedWriter = Files.newBufferedWriter(file)){
+    public void addAndWrite(String name) {
+        try (BufferedWriter bufferedWriter = Files.newBufferedWriter(file, StandardOpenOption.APPEND)) {
         } catch (IOException e) {
-            throw new IllegalStateException("Cannot write file!",e);
+            throw new IllegalStateException("Cannot write file!", e);
         }
     }
 }
