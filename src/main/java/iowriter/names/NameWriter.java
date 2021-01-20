@@ -7,17 +7,18 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
-public class NamesWriter {
+public class NameWriter {
 
     private Path file;
 
-    public NamesWriter(Path file) {
+    public NameWriter(Path file) {
         this.file = file;
 
     }
 
     public void addAndWrite(String name) {
         try (BufferedWriter bufferedWriter = Files.newBufferedWriter(file, StandardOpenOption.APPEND)) {
+            bufferedWriter.write(name);
         } catch (IOException e) {
             throw new IllegalStateException("Cannot write file!", e);
         }
