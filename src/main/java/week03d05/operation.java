@@ -1,4 +1,4 @@
-package week3;
+package week03d05;
 
 public class operation {
     private int left;

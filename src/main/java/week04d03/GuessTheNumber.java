@@ -1,11 +1,11 @@
-package week04;
+package week04d03;
 
 
 import java.util.Random;
 import java.util.Scanner;
 
 
-public class NumberGuesser {
+public class GuessTheNumber {
   public static void main(String[] args) {
         int random = new Random().nextInt (100) + 1;
         Scanner scanner = new Scanner(System.in);
