@@ -23,7 +23,7 @@ public class ShoppingListManager {
             }
             return items;
         } catch (IOException e) {
-        throw new IllegalStateException("Canot create file", e);
+        throw new IllegalStateException("Cannot create file", e);
         }
     }
 }
