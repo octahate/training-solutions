@@ -1,4 +1,4 @@
-package collectionsset.collectionshashset;
+package collectionsset;
 
 import java.util.ArrayList;
 import java.util.Collection;
