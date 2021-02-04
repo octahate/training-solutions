@@ -1,7 +1,6 @@
 package week14d04;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Contract {
