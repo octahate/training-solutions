@@ -1,13 +1,15 @@
 package clone.issuetracker;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Issue {
 
     private String name;
     private LocalDateTime time;
     private Status status;
-    private Comment comment;
+    private List<Comment> comment;
 
     public String getName() {
         return name;
@@ -21,16 +23,18 @@ public class Issue {
         return status;
     }
 
-    public Comment getComment() {
+    public List<Comment> getComment() {
         return comment;
     }
 
-    public Issue(String name, LocalDateTime time, Status status, Comment comment) {
+    public Issue(String name, LocalDateTime time, Status status, List<Comment> comment) {
         this.name = name;
         this.time = time;
         this.status = status;
         this.comment = comment;
     }
+
+
 
     public Issue (Issue newIssue, CopyMode howToCopy){
         this.name = newIssue.getName();
@@ -40,7 +44,7 @@ public class Issue {
             this.comment = newIssue.getComment();
         }
         else {
-            this.comment = new Comment("",LocalDateTime.now());
+            this.comment = new ArrayList<>();
         }
     }
 
