@@ -1,7 +1,5 @@
 package week15d01;
 
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
 
 public class Coordinates {
@@ -12,18 +10,18 @@ public class Coordinates {
         this.graph = graph;
     }
 
-    public String maxValue() {
-        double max = Collections.max(graph.values());
-        double where = 0;
+    public Map.Entry<Double, Double> maxValue() {
+        Map.Entry<Double, Double> maxElement = null;
+        double max = Double.MIN_VALUE;
 
-        for (Double currentKey : graph.keySet()) {
-            if (graph.get(currentKey) == max) {
-                where = currentKey;
-
+        for (Map.Entry<Double, Double> currentKey : graph.entrySet()) {
+            if (max < currentKey.getValue()) {
+                maxElement = currentKey;
+                max = currentKey.getValue();
             }
-
-            return "A függvény a maximum értékét " + where + " helyen, " + max + "értéken veszi fel";
-
         }
+        return maxElement;
+
     }
 }
+
