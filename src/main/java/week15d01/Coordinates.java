@@ -15,9 +15,8 @@ public class Coordinates {
         double max = Double.MIN_VALUE;
 
         for (Map.Entry<Double, Double> currentKey : graph.entrySet()) {
-            if (max < currentKey.getValue()) {
+            if (maxElement == null || maxElement.getValue() < currentKey.getValue()) {
                 maxElement = currentKey;
-                max = currentKey.getValue();
             }
         }
         return maxElement;
