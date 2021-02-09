@@ -1,0 +1,49 @@
+*** read a file as a BufferedReader line-by-line via a (Path path) ***
+
+    public void readFromFile(Path path) {
+        try (BufferedReader br = Files.newBufferedReader(path)) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            throw new IllegalArgumentException("Cannot read line!", e);
+        }
+    }
+
+*** read a file as a BufferedReader line-by-line via a (String filename) ***
+
+    public void readFromString(String name) {
+        Path path = Path.of(name);
+        try (BufferedReader br = Files.newBufferedReader(path)) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            throw new IllegalArgumentException("Cannot read line!", e);
+        }
+    }
+
+
+*** write a file as a BufferedWriter as a String to a (File path) ***
+
+        try(BufferedWriter writer = Files.newBufferedWriter(file)){
+            writer.write("something");
+
+        } catch (IOException e) {
+            throw new IllegalArgumentException("Cannot write file!", e);
+        }
+
+*** write a file as a PrintWriter with multiple types to a (File file) ***
+
+   public void writeToFile(String file) {
+        Path path = Path.of(file);
+        try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(path))) {
+            writer.println("text");
+            writer.print(22);
+        } catch (IOException e) {
+            throw new IllegalStateException("Can not write file!", e);
+        }
+    }
+

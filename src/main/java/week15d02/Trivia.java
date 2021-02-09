@@ -35,18 +35,21 @@ public class Trivia {
     List<Question> questions = new ArrayList<>();
 
     public Trivia(Path path) {
+        readFromFile(path);
+    }
+
+    public void readFromFile(Path path) {
 
         String[] string = new String[3];
 
-        try (BufferedReader br = Files.newBufferedReader(path)){
+        try (BufferedReader br = Files.newBufferedReader(path)) {
             String line;
-            String buffer;
-            while((line = br.readLine()) != null){
-                buffer= br.readLine();
-                String question = line;
+            while ((line = br.readLine()) != null) {
+                String buffer = br.readLine();
                 String answer = buffer.split(" ")[0];
-                int score = Integer.parseInt(buffer.split(" ") [1]);
-                String type = buffer.split(" ") [3];
+                int score = Integer.parseInt(buffer.split(" ")[1]);
+                String type = buffer.split(" ")[2];
+                questions.add(new Question(line, answer, score, type));
             }
         } catch (IOException e) {
             throw new IllegalArgumentException("Cannot read line!", e);
@@ -54,26 +57,25 @@ public class Trivia {
 
     }
 
-    public List<String> getQuestionsBySubject(String type){
+    public List<String> getQuestionsBySubject(String type) {
         List<String> result = new ArrayList<>();
 
-        for (Question i : questions){
-            if (i.getqType().equals(type)){
+        for (Question i : questions) {
+            if (i.getqType().equals(type)) {
                 result.add(i.getQuestion());
             }
         }
         return result;
     }
 
-    public Question returnRandonQuestion(){
-        Random rnd = new Random();
+    public Question returnRandonQuestion(Random rnd) {
         return questions.get(rnd.nextInt(questions.size()));
     }
 
-    public Map<String, List<String>> getAllQuestionsBySubject(){
-        Map<String, List <String>> result =  new HashMap();
-        for (Question q : questions){
-            if (!result.containsKey(q.getqType())){
+    public Map<String, List<String>> getAllQuestionsBySubject() {
+        Map<String, List<String>> result = new HashMap();
+        for (Question q : questions) {
+            if (!result.containsKey(q.getqType())) {
                 result.put(q.getqType(), new ArrayList<>());
             }
             result.get(q.getqType()).add(q.getQuestion());
@@ -81,28 +83,27 @@ public class Trivia {
         return result;
     }
 
-    private Map<String, Integer> getScoreBySubject(){
-        Map<String, Integer> temp =  new HashMap();
-        for (Question q : questions){
-            if (!temp.containsKey(q.getqType())){
+    private Map<String, Integer> getScoreBySubject() {
+        Map<String, Integer> temp = new HashMap();
+        for (Question q : questions) {
+            if (!temp.containsKey(q.getqType())) {
                 temp.put(q.getqType(), 0);
             }
-            temp.put(q.getqType(), temp.get((q.getqType())+q.getScore()));
+            temp.put(q.getqType(), temp.get((q.getqType()) + q.getScore()));
         }
         return temp;
     }
 
-    public String getHighScorebySubject(){
+    public String getHighScorebySubject() {
         Map<String, Integer> temp2 = getScoreBySubject();
         int max = 0;
         Map.Entry<String, Integer> temp3 = null;
-        for (Map.Entry<String,Integer> i: temp2.entrySet()){
-            if (max < i.getValue()){
+        for (Map.Entry<String, Integer> i : temp2.entrySet()) {
+            if (max < i.getValue()) {
                 max = i.getValue();
                 temp3 = i;
             }
         }
         return temp3.getKey();
     }
-
 }
