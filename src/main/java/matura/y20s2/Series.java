@@ -71,7 +71,7 @@ public class Series {
                 watchedEpisodes++;
             }
         }
-        return watchedEpisodes / amountOfEpisodes * 100.0;
+        return (double) watchedEpisodes / amountOfEpisodes * 100.00;
     }
 
     public String amountOfTimeWatched() {
