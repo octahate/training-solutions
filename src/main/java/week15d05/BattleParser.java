@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.sql.SQLOutput;
 import java.util.*;
 
 public class BattleParser {
@@ -37,7 +36,7 @@ public class BattleParser {
         }
     }
 
-    private void mostBattledHouse() {
+    private String convertArraysAndReturnMostBattled() {
         List<String> housesListOnce = new ArrayList<>(houses);
         String[] housesArray = new String[housesListOnce.size()];
         for (int i = 0; i < housesListOnce.size(); i++) {
@@ -52,15 +51,21 @@ public class BattleParser {
                 }
             }
         }
-
-        System.out.println(houses.toString());
-        System.out.println(housesList.toString());
-        System.out.println(housesListOnce.toString());
+        int max = 0;
+        int position = 0;
+        for (int i = 0; i < counterArray.length ; i++) {
+            if (counterArray[i] > max){
+                max = counterArray[i];
+                position = i;
+            }
+        }
+        return "A " + housesArray[position] + " ház vett részt a legtöbb csatában" + max + "mennyiségben.";
     }
+
 
     public static void main(String[] args) {
         BattleParser bp = new BattleParser();
         bp.readFromString("src/main/resources/battles.csv");
-        bp.mostBattledHouse();
+        System.out.println(bp.convertArraysAndReturnMostBattled());
     }
 }
