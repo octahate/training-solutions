@@ -47,3 +47,22 @@
         }
     }
 
+*** iterate through the elements of a Map, manipulate data if found such, add if not found such ***
+
+    private void putMap(String key, int value){
+    if (!map.constains(key)){
+        map.put(key, 0);
+    }
+    map.put(key, map.get(key) + value);
+  }
+
+*** turn a map into an object list with the keys and the values ***
+
+List<Object> sortedList = new ArrayList<>();
+    for (String key: map.keySet()){
+       sortedList(add new Battle (key, map.get(key)));
+    }
+
+
+
+
