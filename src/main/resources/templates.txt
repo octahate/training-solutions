@@ -50,7 +50,7 @@
 *** iterate through the elements of a Map, manipulate data if found such, add if not found such ***
 
     private void putMap(String key, int value){
-    if (!map.constains(key)){
+    if (!map.containsKey(key)){
         map.put(key, 0);
     }
     map.put(key, map.get(key) + value);
