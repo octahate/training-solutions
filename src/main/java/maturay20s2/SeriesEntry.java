@@ -1,4 +1,4 @@
-package matura.y20s2;
+package maturay20s2;
 
 public class SeriesEntry {
 
