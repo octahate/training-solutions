@@ -16,7 +16,8 @@ public class EmployeesDao {
     public long createEntry(String name) {
         try (
                 Connection cnn = ds.getConnection();
-                PreparedStatement smt = cnn.prepareStatement("insert into employees(emp_name) values (?)", Statement.RETURN_GENERATED_KEYS);
+                PreparedStatement smt = cnn.prepareStatement("insert into employees(emp_name) values (?)",
+                        Statement.RETURN_GENERATED_KEYS);
         ) {
             smt.setString(1, name);
             smt.executeUpdate();
@@ -26,20 +27,19 @@ public class EmployeesDao {
         }
     }
 
-    public void createEmployeesList(List<String> names){
+    public void createEmployeesList(List<String> names) {
         try (Connection conn = ds.getConnection();) {
             conn.setAutoCommit(false);
-            try (PreparedStatement stmt = conn.prepareStatement("insert into employees (emp_name) values (?)")){
-                for (String name: names ){
+            try (PreparedStatement stmt = conn.prepareStatement("insert into employees (emp_name) values (?)")) {
+                for (String name : names) {
                     if (name.startsWith("x")) {
-                     throw new IllegalArgumentException("Invalid name!");
+                        throw new IllegalArgumentException("Invalid name!");
                     }
-                    stmt.setString(1,name);
+                    stmt.setString(1, name);
                     stmt.executeUpdate();
                 }
                 conn.commit();
-            }
-            catch (IllegalArgumentException iae){
+            } catch (IllegalArgumentException iae) {
                 conn.rollback();
             }
         } catch (SQLException throwables) {
@@ -55,8 +55,7 @@ public class EmployeesDao {
                 return rs.getLong(1);
             }
             throw new IllegalStateException("Cannot get ID");
-        }
-        catch (SQLException sql){
+        } catch (SQLException sql) {
             throw new IllegalStateException("Cannot find it.");
         }
     }
@@ -68,8 +67,7 @@ public class EmployeesDao {
             ps.setLong(1, id);
 
             return selectNameByPreparedStatement(ps);
-        }
-        catch (SQLException sqle) {
+        } catch (SQLException sqle) {
             throw new IllegalStateException("Cannot query", sqle);
         }
     }
@@ -77,8 +75,7 @@ public class EmployeesDao {
     private String selectNameByPreparedStatement(PreparedStatement ps) {
         try (ResultSet rs = ps.executeQuery()) {
             if (rs.next()) {
-                String name = rs.getString("emp_name");
-                return name;
+                return rs.getString("emp_name");
             }
             throw new IllegalArgumentException("Not found");
         } catch (SQLException sqle) {
