@@ -10,8 +10,9 @@ public class EmployeesMain {
         ds.setUser("employees");
         ds.setPassword("sucoja");
 
-        new EmployeesDao().createEntry(ds);
-        System.out.println(new EmployeesDao().findEmployeeNameById(ds,1));
+        new EmployeesDao(ds).createEntry("Jane Doe");
+        System.out.println(new EmployeesDao(ds).findEmployeeNameById(1));
+        System.out.println(new EmployeesDao(ds).listEmployeeNames());
     }
 
 }
