@@ -209,14 +209,14 @@ public class CovidDao {
         }
     }
 
-    public void generateVaccinationList(DataSource ds, String ssn) {
-        Path file = Path.of(ssn + ".csv");
+    public void generateVaccinationList(DataSource ds, String zip) {
+        Path file = Path.of("src/main/resources/" + zip + ".csv");
         LocalTime firstHour = LocalTime.of(8,0);
         try (
                 Connection conn = ds.getConnection();
                 PreparedStatement stmt = conn.prepareStatement("SELECT citizens.citizen_name , citizens.age, citizens.email, citizens.taj FROM citizens WHERE citizens.number_of_vaccination = 0 AND citizens.zip = ? ORDER BY citizens.age DESC, citizens.citizen_name ASC LIMIT 16");
         ) {
-            stmt.setString(1, ssn);
+            stmt.setString(1, zip);
             try (
                     ResultSet rs = stmt.executeQuery();
                     BufferedWriter writer = Files.newBufferedWriter(file);
@@ -224,15 +224,21 @@ public class CovidDao {
                 writer.write("Időpont;Név;Irányítószám;Életkor;E-mail cím;TAJ szám\n");
                 if (rs.next()) {
                     writer.write(firstHour.getHour() + ":" + firstHour.getMinute());
+                    writer.write(";");
                     writer.write(rs.getString("citizen_name"));
-                    writer.write(rs.getInt("age"));
+                    writer.write(";");
+                    writer.write(zip);
+                    writer.write(";");
+                    writer.write(rs.getString("age"));
+                    writer.write(";");
                     writer.write(rs.getString("email"));
+                    writer.write(";");
                     writer.write(rs.getString("taj"));
                     writer.write("\n");
                     firstHour = firstHour.plusMinutes(30);
                 }
             } catch (SQLException | IOException sqle) {
-                throw new IllegalArgumentException("Error by query orby writing file", sqle);
+                throw new IllegalArgumentException("Error by query or by writing file", sqle);
             }
         } catch (SQLException se) {
             throw new IllegalStateException("Cannot insert", se);

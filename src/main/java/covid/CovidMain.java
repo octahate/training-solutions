@@ -43,25 +43,64 @@ public class CovidMain {
                 System.out.println("Adja meg az oltás időpontját \" yyyy-mm-dd hh:mm:ss \" formátumban!");
                 administer = sc.nextLine();
                 cd.addDoseOfVaccine(cd.initializeDataSource(), ssn, vaccineType, administer);
+                break;
             }
             case 1 -> {
                 vaccineType = cd.getFirstDoseInformation(cd.initializeDataSource(), ssn);
                 System.out.println("Adja meg az oltás időpontját \" yyyy-mm-dd hh:mm:ss \" formátumban!");
                 administer = sc.nextLine();
                 cd.addDoseOfVaccine(cd.initializeDataSource(), ssn, vaccineType, administer);
+                break;
             }
             default -> throw new IllegalArgumentException("A beteg megkapta a megfelelő mennyiségű vakcinát!");
         }
+
     }
+
+    public void initializeMenu(){
+        System.out.println("Kérem válasszon az alábbi menüpontok közül:");
+        System.out.println("1. Regisztráció");
+        System.out.println("2. Tömeges regisztráció");
+        System.out.println("3. Generálás");
+        System.out.println("4. Oltás");
+        System.out.println("5. Oltás meghíusulás");
+        System.out.println("6. Riport");
+    }
+
 
 
     public static void main(String[] args) {
 
         CovidDao cd = new CovidDao();
         CovidMain cm = new CovidMain();
+        Scanner sc = new Scanner(System.in);
+        cm.initializeMenu();
+        switch (sc.nextLine()) {
+            case "1":
+                cm.addAndCheckSingleItem();
+                cm.initializeMenu();
+                break;
 
-        cd.massDatabaseFill(cd.initializeDataSource(),"src/main/resources/database.csv");
-        //cm.addAndCheckSingleItem();
-        //cd.addDoseOfVaccine (cd.initializeDataSource(),"123456908", "Pfizer", "2021-11-22 08:22:33");
+            case "2":
+                System.out.println("Adja meg a file helyét!");
+                cd.massDatabaseFill(cd.initializeDataSource(), sc.nextLine());
+                System.out.println("Adatbázis sikeresen frissítve!");
+                break;
+            case "3":
+                System.out.println("Adja meg az irányítószámot!");
+                cd.generateVaccinationList(cd.initializeDataSource(), sc.nextLine());
+                break;
+            case "4":
+                System.out.println("Kérem a páciens TAJ számát!");
+                cm.vaccinatePerson(sc.nextLine());
+                break;
+            case "5":
+                System.out.println("Kérem a páciens TAJ számát!");
+                String ssn = sc.nextLine();
+                System.out.println("Mi volt a probléma? Kérem írja le röviden:");
+                String error = sc.nextLine();
+                cd.addInvalidVaccine(cd.initializeDataSource(),ssn,error);
+                break;
+        }
     }
 }
