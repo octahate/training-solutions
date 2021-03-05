@@ -23,6 +23,14 @@ public class CovidDao {
         return ds;
     }
 
+    public DataSource initializeTestDataSource() {
+        MysqlDataSource ds = new MysqlDataSource();
+        ds.setUrl("jdbc:mysql://localhost:3306/vaccinetrackertest?useUnicode=true");
+        ds.setUser("doctor");
+        ds.setPassword("vaccine");
+        return ds;
+    }
+
     public void addPersonToDatabase(DataSource ds, String[] data) {
         try (
                 Connection cnn = ds.getConnection();
