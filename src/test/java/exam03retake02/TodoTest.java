@@ -27,4 +27,5 @@ class TodoTest {
         assertThrows(IllegalArgumentException.class,
                 () -> new Todo("Invalid", 6));
     }
+
 }
