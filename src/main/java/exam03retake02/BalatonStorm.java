@@ -31,7 +31,7 @@ public class BalatonStorm {
             throw new IllegalArgumentException("Cannot read line!", e);
         }
         coll.setStrength(Collator.PRIMARY);
-        Collections.sort(solution, coll);
+        solution.sort(coll);
         return solution;
     }
 
@@ -44,10 +44,7 @@ public class BalatonStorm {
     }
 
     private boolean isThereAStorm(String line){
-        if (line.contains("3")) {
-                return true;
-            }
-        return false;
+        return line.contains("3");
     }
 
 }

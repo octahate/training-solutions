@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class CovidMain {
 
+    private CovidDao cd = new CovidDao();
+    private Scanner sc = new Scanner(System.in);
+
     public String[] addAndCheckSingleItem() {
         String[] data = new String[5];
         Validator validator = new Validator();
@@ -32,8 +35,6 @@ public class CovidMain {
     }
 
     public void vaccinatePerson(String ssn){
-        CovidDao cd = new CovidDao();
-        Scanner sc = new Scanner(System.in);
         String vaccineType = null;
         String administer = null;
         switch (cd.returnAmountOfDoses(cd.initializeDataSource(), ssn)) {
@@ -67,18 +68,12 @@ public class CovidMain {
         System.out.println("6. Riport");
     }
 
-
-
-    public static void main(String[] args) {
-
-        CovidDao cd = new CovidDao();
-        CovidMain cm = new CovidMain();
-        Scanner sc = new Scanner(System.in);
-        cm.initializeMenu();
+    public void menuItems(){
+        initializeMenu();
         switch (sc.nextLine()) {
             case "1":
-                cm.addAndCheckSingleItem();
-                cm.initializeMenu();
+                addAndCheckSingleItem();
+                initializeMenu();
                 break;
 
             case "2":
@@ -92,7 +87,7 @@ public class CovidMain {
                 break;
             case "4":
                 System.out.println("Kérem a páciens TAJ számát!");
-                cm.vaccinatePerson(sc.nextLine());
+                vaccinatePerson(sc.nextLine());
                 break;
             case "5":
                 System.out.println("Kérem a páciens TAJ számát!");
@@ -101,6 +96,18 @@ public class CovidMain {
                 String error = sc.nextLine();
                 cd.addInvalidVaccine(cd.initializeDataSource(),ssn,error);
                 break;
+            default:
+                System.out.println("Nincs ilyen menüpont!");
+                menuItems();
         }
+    }
+
+
+
+    public static void main(String[] args) {
+
+        CovidMain cm = new CovidMain();
+        cm.menuItems();
+
     }
 }
