@@ -1,4 +1,4 @@
-package arraysofarrays;
+package arrayofarrays;
 
 public class ArrayOfArraysMain {
     public int[][] multiplicationTable(int size) {
