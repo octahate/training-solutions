@@ -1,6 +1,5 @@
 package week05d05;
 
-import introexeption.patient.Patient;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
